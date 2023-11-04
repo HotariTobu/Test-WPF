@@ -1,0 +1,98 @@
+﻿<Window
+  x:Class="WPFShaderEditor.MainWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:l="clr-namespace:WPFShaderEditor"
+  mc:Ignorable="d"
+  Title="MainWindow" Height="600" Width="800">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition />
+      <RowDefinition Height="24" />
+    </Grid.RowDefinitions>
+    <Grid Grid.Row="0">
+            <!--
+          
+          -->
+            <Grid x:Name="baseGrid" Background="Black"
+            Margin="50">
+                <Grid.Effect>
+                    <l:CustomShaderEffect
+            x:Name="shader"
+            Bytecode="{Binding Path=Bytecode.Value}"
+            Width="{Binding ElementName=baseGrid, Path=ActualWidth}"
+            Height="{Binding ElementName=baseGrid, Path=ActualHeight}"
+            />
+                </Grid.Effect>
+                <Grid.Triggers>
+                    <EventTrigger RoutedEvent="Grid.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                  Storyboard.TargetName="shader"
+                  Storyboard.TargetProperty="Time"
+                  From="0"
+                  To="3600"
+                  RepeatBehavior="Forever"
+                  AutoReverse="false"
+                  Duration="1:0:0"
+                  />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Grid.Triggers>
+                <MediaElement x:Name="mediaElement" MediaEnded="MediaElement_OnMediaEnded" LoadedBehavior="Manual" Visibility="Collapsed" />
+            </Grid>
+            <!--
+        <Button x:Name="button" Width="200" Height="80">
+                <Button.Effect>
+                    <l:CustomShaderEffect
+            Bytecode="{Binding Path=Bytecode.Value}"
+            Width="{Binding ElementName=button, Path=ActualWidth}"
+            Height="{Binding ElementName=button, Path=ActualHeight}"
+            />
+                </Button.Effect>
+            </Button>
+        -->
+            <TextBox
+        Background="Transparent"
+        FontSize="16"
+        Foreground="White"
+        CaretBrush="White"
+        AcceptsReturn="True"
+        TextWrapping="Wrap"
+        VerticalScrollBarVisibility="Auto"
+        Text="{Binding Path=Source.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        <TextBox.Effect>
+          <DropShadowEffect Color="Black" />
+        </TextBox.Effect>
+      </TextBox>
+      <TextBlock
+        Background="Transparent"
+        FontSize="16"
+        Foreground="Red"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Bottom"
+        TextWrapping="Wrap"
+        Text="{Binding Path=ErrorMessage.Value}">
+        <TextBlock.Effect>
+          <DropShadowEffect Color="Black" />
+        </TextBlock.Effect>
+      </TextBlock>
+    </Grid>
+    <Grid Grid.Row="1">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition />
+        <ColumnDefinition Width="64" />
+        <ColumnDefinition Width="64" />
+        <ColumnDefinition Width="64" />
+      </Grid.ColumnDefinitions>
+      <TextBox Grid.Column="0" x:Name="txtboxMediaFileName" />
+      <Button Grid.Column="1" Content="..." Click="ButtonOpenFile_OnClick" />
+      <Button Grid.Column="2" Content="Play" Click="ButtonPlay_OnClick" />
+      <Button Grid.Column="3" Content="Reset" Click="ButtonReset_OnClick" />
+    </Grid>
+  </Grid>
+</Window>

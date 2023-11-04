@@ -1,0 +1,78 @@
+﻿<Page x:Class="WPF_Test.Cont1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_Test"
+      mc:Ignorable="d" 
+      d:DesignHeight="2203.05" d:DesignWidth="3146"
+      Title="Cont1">
+
+    <Grid>
+        <Border BorderThickness="1" BorderBrush="Black" Margin="0,0,753,210" Width="47"/>
+        <Button Content="Button" Height="58" Margin="75,126,0,0" VerticalAlignment="Top" Click="Button_Click" Opacity="0.5" HorizontalAlignment="Left" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+        <Calendar Height="180" Margin="171,219,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" d:LayoutOverrides="HorizontalAlignment"/>
+        <Canvas HorizontalAlignment="Left" Margin="590,27,0,0" Width="145" VerticalAlignment="Top">
+            <ToolBarPanel Height="112" Width="145"/>
+        </Canvas>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Height="25" Margin="1010,29,0,0" VerticalAlignment="Top" Width="90"/>
+        <ComboBox HorizontalAlignment="Left" Height="16" Margin="1144,67,0,0" VerticalAlignment="Top" Width="70"/>
+        <ContentControl Content="ContentControl" HorizontalAlignment="Left" Height="125" Margin="1264,124,0,0" VerticalAlignment="Top" Width="170"/>
+        <DataGrid HorizontalAlignment="Left" Height="90" Margin="1339,289,0,0" VerticalAlignment="Top" Width="140"/>
+        <DatePicker HorizontalAlignment="Left" Height="85" Margin="1724,294,0,0" VerticalAlignment="Top" Width="170"/>
+        <DockPanel HorizontalAlignment="Left" LastChildFill="False" Margin="2228,95,0,0" Width="400" VerticalAlignment="Top"/>
+        <DocumentViewer Height="240" Margin="40,734,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Ellipse HorizontalAlignment="Left" Height="150" Margin="610,1014,0,0" Stroke="Black" VerticalAlignment="Top" Width="190"/>
+        <Expander Header="Expander" HorizontalAlignment="Left" Height="90" Margin="1134,1029,0,0" VerticalAlignment="Top" Width="255">
+            <Grid Background="#FFE5E5E5"/>
+        </Expander>
+        <Frame Content="Frame" HorizontalAlignment="Left" Height="45" Margin="1408,944,0,0" VerticalAlignment="Top" Width="190"/>
+        <Grid HorizontalAlignment="Left" Height="213" Margin="2016,604,0,0" VerticalAlignment="Top" Width="210"/>
+        <GridSplitter HorizontalAlignment="Left" Height="160" Margin="2270,959,0,0" VerticalAlignment="Top" Width="30"/>
+        <GroupBox Header="GroupBox" HorizontalAlignment="Left" Height="185" Margin="2449,1029,0,0" VerticalAlignment="Top" Width="125">
+            <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="85,0,0,0"/>
+        </GroupBox>
+        <Image Height="125" Margin="1243,1284,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Label" HorizontalAlignment="Left" Height="40" Margin="1527,1314,0,0" VerticalAlignment="Top" Width="110"/>
+        <ListBox HorizontalAlignment="Left" Height="50" Margin="1890,1284,0,0" VerticalAlignment="Top" Width="105"/>
+        <ListView HorizontalAlignment="Left" Height="180" Margin="2209,1264,0,0" VerticalAlignment="Top" Width="50">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <MediaElement HorizontalAlignment="Left" Height="140" Margin="2438,1304,0,0" VerticalAlignment="Top" Width="250"/>
+        <PasswordBox Height="20" Margin="102,1699,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" d:LayoutOverrides="HorizontalAlignment"/>
+        <ProgressBar HorizontalAlignment="Left" Height="30" Margin="1008,1404,0,0" VerticalAlignment="Top" Width="355"/>
+        <Rectangle HorizontalAlignment="Left" Height="85" Margin="1455,1524,0,0" Stroke="Black" VerticalAlignment="Top" Width="230"/>
+        <RichTextBox HorizontalAlignment="Left" Height="195" Margin="2102,1524,0,0" VerticalAlignment="Top" Width="135">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <ScrollBar HorizontalAlignment="Left" Height="175" Margin="2479,1524,0,0" VerticalAlignment="Top" Width="245"/>
+        <Separator HorizontalAlignment="Left" Height="27" Margin="2451,747,0,0" VerticalAlignment="Top" Width="570"/>
+        <Slider HorizontalAlignment="Left" Height="27" Margin="715,987,0,0" VerticalAlignment="Top" Width="305"/>
+        <StackPanel HorizontalAlignment="Left" Height="210" Margin="1954,1084,0,0" VerticalAlignment="Top" Width="170"/>
+        <StatusBar HorizontalAlignment="Left" Height="65" Margin="1413,1919,0,0" VerticalAlignment="Top" Width="285"/>
+        <TabControl HorizontalAlignment="Left" Height="165" Margin="2457,1354,0,0" VerticalAlignment="Top" Width="180">
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+        <TextBlock HorizontalAlignment="Left" Height="47" Margin="1136,1759,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="72"/>
+        <ToolBar HorizontalAlignment="Left" Height="5" Margin="1422,982,0,0" VerticalAlignment="Top" Width="115"/>
+        <ToolBarTray Height="55" Margin="1336,1354,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TreeView HorizontalAlignment="Left" Height="120" Margin="1860,1399,0,0" VerticalAlignment="Top" Width="75"/>
+        <Viewbox HorizontalAlignment="Left" Height="120" Margin="2239,1664,0,0" VerticalAlignment="Top" Width="111"/>
+        <WebBrowser HorizontalAlignment="Left" Height="60" Margin="2364,1824,0,0" VerticalAlignment="Top" Width="150"/>
+        <WrapPanel HorizontalAlignment="Left" Height="75" Margin="2973,1884,0,0" VerticalAlignment="Top" Width="100"/>
+
+    </Grid>
+</Page>

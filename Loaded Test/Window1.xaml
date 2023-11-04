@@ -1,0 +1,27 @@
+﻿<Window x:Class="Loaded_Test.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Loaded_Test"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800"
+        Loaded="Window_Loaded"
+        Unloaded="Window_Unloaded"
+        ContentRendered="Window_ContentRendered"
+        Activated="Window_Activated"
+        Closed="Window_Closed"
+        Closing="Window_Closing"
+        Deactivated="Window_Deactivated"
+        Initialized="Window_Initialized"
+        IsVisibleChanged="Window_IsVisibleChanged"
+        LayoutUpdated="Window_LayoutUpdated"
+        SourceInitialized="Window_SourceInitialized"
+        SourceUpdated="Window_SourceUpdated"
+        TargetUpdated="Window_TargetUpdated"
+        ManipulationStarted="Window_ManipulationStarted"
+        ManipulationStarting="Window_ManipulationStarting">
+    <Grid>
+        <Button Content="TEST"/>
+    </Grid>
+</Window>

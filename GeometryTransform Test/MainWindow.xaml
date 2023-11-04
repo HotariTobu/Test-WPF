@@ -1,0 +1,36 @@
+﻿<Window x:Class="DrawingCircle_Test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DrawingCircle_Test"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="280">
+    <Window.DataContext>
+        <local:MWVM/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Path Fill="Red" Width="50" Height="50">
+            <Path.Data>
+                <EllipseGeometry RadiusX="50" RadiusY="50">
+                    <EllipseGeometry.Transform>
+                        <TranslateTransform X="{Binding X}" Y="{Binding Y}"/>
+                    </EllipseGeometry.Transform>
+                </EllipseGeometry>
+            </Path.Data>
+        </Path>
+        <StackPanel Margin="10">
+            <TextBlock Text="{Binding X, StringFormat=X: {0}}"/>
+            <TextBlock Text="{Binding Y, StringFormat=Y: {0}}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Slider Value="{Binding X}" Minimum="-50" Maximum="50"/>
+            <Slider Value="{Binding Y}" Minimum="-50" Maximum="50"/>
+            <Slider Value="{Binding Angle}" Minimum="0" Maximum="360" ValueChanged="Slider_ValueChanged"/>
+        </StackPanel>
+    </Grid>
+</Window>

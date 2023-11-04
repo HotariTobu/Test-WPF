@@ -1,0 +1,34 @@
+﻿<Page x:Class="WPF_Test.Styl1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_Test"
+      xmlns:wcc="clr-namespace:WPFCustomControls;assembly=WPFCustomControls"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Styl1">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/WPFHotariStyles;Component/Generic.xaml"/>
+                <ResourceDictionary Source="/WPFCustomControls;Component/PathBox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
+        <TextBox x:Name="tb" HorizontalAlignment="Left" Margin="72,20,0,0" Text="TextBox" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" Style="{StaticResource H_TextBox}" IsInactiveSelectionHighlightEnabled="True"/>
+        <StackPanel HorizontalAlignment="Left" Height="110" Margin="22,80,0,0" VerticalAlignment="Top" Width="170" Orientation="Horizontal">
+            <Button Content="Button"  Style="{StaticResource H_Button}" Click="Button_Click"/>
+            <Button x:Name="button2" Content="Button"  Style="{StaticResource H_Button}"/>
+            <Button Content="Button"  Style="{StaticResource H_Button}" Click="Button_Click_1"/>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Left" Height="110" Margin="72,250,0,0" VerticalAlignment="Top" Width="403" Orientation="Horizontal">
+            <TextBox x:Name="tbb" Text="TextBox" TextWrapping="NoWrap" Style="{StaticResource H_TextBox}" IsInactiveSelectionHighlightEnabled="True"/>
+            <Button Content="Button"  Style="{StaticResource H_Button}" Click="Button_Click_2" Width="50"/>
+            <wcc:PathBox Name="pb" PathText="path" Style="{StaticResource H_PathBox}"/>
+        </StackPanel>
+        <Label Content="{Binding Path=PathText,ElementName=pb}" HorizontalAlignment="Left" Height="40" Margin="35,390,0,0" VerticalAlignment="Top" Width="130" BorderBrush="Black"/>
+    </Grid>
+</Page>

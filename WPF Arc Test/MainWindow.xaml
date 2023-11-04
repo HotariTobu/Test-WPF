@@ -1,0 +1,98 @@
+﻿<Window x:Class="WPF_Arc_Test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Arc_Test"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors" 
+        mc:Ignorable="d"
+        Title="WPF Arc Test" Height="450" Width="800" x:Name="Window">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Path x:Name="Space" Stroke="Red" StrokeThickness="5">
+            <Path.Resources>
+                <local:PointConverter x:Key="PointConverter"/>
+                <local:SizeConverter x:Key="SizeConverter"/>
+                <local:BoolToSweepDirectionConverter x:Key="BoolToSweepDirectionConverter"/>
+            </Path.Resources>
+            <Path.Data>
+                <PathGeometry>
+                    <PathFigure>
+                        <PathFigure.StartPoint>
+                            <MultiBinding  Converter="{StaticResource PointConverter}" ConverterParameter="10,10">
+                                <Binding Path="(UIElement.RenderTransform).(MatrixTransform.Matrix).(Matrix.OffsetX)"  ElementName="Start"/>
+                                <Binding Path="(UIElement.RenderTransform).(MatrixTransform.Matrix).(Matrix.OffsetY)"  ElementName="Start"/>
+                            </MultiBinding>
+                        </PathFigure.StartPoint>
+                        <ArcSegment SweepDirection="{Binding IsChecked, Converter={StaticResource BoolToSweepDirectionConverter}, ElementName=IsClockwise}"
+                                    IsLargeArc="{Binding IsChecked, ElementName=IsLargeArc}"
+                                    RotationAngle="{Binding Value, ElementName=RotationAngle}">
+                            <ArcSegment.Point>
+                                <MultiBinding  Converter="{StaticResource PointConverter}" ConverterParameter="10,10">
+                                    <Binding Path="(UIElement.RenderTransform).(MatrixTransform.Matrix).(Matrix.OffsetX)"  ElementName="End"/>
+                                    <Binding Path="(UIElement.RenderTransform).(MatrixTransform.Matrix).(Matrix.OffsetY)"  ElementName="End"/>
+                                </MultiBinding>
+                            </ArcSegment.Point>
+                            <ArcSegment.Size>
+                                <MultiBinding  Converter="{StaticResource SizeConverter}" ConverterParameter="10,10">
+                                    <Binding Path="(UIElement.RenderTransform).(MatrixTransform.Matrix).(Matrix.OffsetX)"  ElementName="ArcSize"/>
+                                    <Binding Path="(UIElement.RenderTransform).(MatrixTransform.Matrix).(Matrix.OffsetY)"  ElementName="ArcSize"/>
+                                </MultiBinding>
+                            </ArcSegment.Size>
+                        </ArcSegment>
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <Canvas>
+            <Ellipse x:Name="Start" Width="20" Height="20" Fill="Blue" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <MatrixTransform Matrix="1,0,0,1,100,100"/>
+                </Ellipse.RenderTransform>
+                <b:Interaction.Behaviors>
+                    <b:MouseDragElementBehavior ConstrainToParentBounds="True" X="{Binding XPosition, Mode=TwoWay}" Y="{Binding YPosition, Mode=TwoWay}"/>
+                </b:Interaction.Behaviors>
+            </Ellipse>
+            <Ellipse x:Name="End" Width="20" Height="20" Fill="Blue">
+                <Ellipse.RenderTransform>
+                    <MatrixTransform Matrix="1,0,0,1,400,100"/>
+                </Ellipse.RenderTransform>
+                <b:Interaction.Behaviors>
+                    <b:MouseDragElementBehavior ConstrainToParentBounds="True" X="{Binding XPosition, Mode=TwoWay}" Y="{Binding YPosition, Mode=TwoWay}"/>
+                </b:Interaction.Behaviors>
+            </Ellipse>
+            <Ellipse x:Name="ArcSize" Width="20" Height="20" Fill="Green">
+                <Ellipse.RenderTransform>
+                    <MatrixTransform Matrix="1,0,0,1,100,50"/>
+                </Ellipse.RenderTransform>
+                <b:Interaction.Behaviors>
+                    <b:MouseDragElementBehavior ConstrainToParentBounds="True" X="{Binding XPosition, Mode=TwoWay}" Y="{Binding YPosition, Mode=TwoWay}"/>
+                </b:Interaction.Behaviors>
+            </Ellipse>
+        </Canvas>
+        <Slider x:Name="RotationAngle" Grid.Row="1" Maximum="360"/>
+        <StatusBar Grid.Row="2">
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="Start: ({0}, {1}), End: ({2}, {3}), Size: ({4}, {5}), Angle: {6:F2}">
+                        <Binding Path="(UIElement.RenderTransform).(MatrixTransform.Matrix).(Matrix.OffsetX)"  ElementName="Start"/>
+                        <Binding Path="(UIElement.RenderTransform).(MatrixTransform.Matrix).(Matrix.OffsetY)"  ElementName="Start"/>
+                        <Binding Path="(UIElement.RenderTransform).(MatrixTransform.Matrix).(Matrix.OffsetX)"  ElementName="End"/>
+                        <Binding Path="(UIElement.RenderTransform).(MatrixTransform.Matrix).(Matrix.OffsetY)"  ElementName="End"/>
+                        <Binding Path="(UIElement.RenderTransform).(MatrixTransform.Matrix).(Matrix.OffsetX)"  ElementName="ArcSize"/>
+                        <Binding Path="(UIElement.RenderTransform).(MatrixTransform.Matrix).(Matrix.OffsetY)"  ElementName="ArcSize"/>
+                        <Binding Path="Value" ElementName="RotationAngle"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <CheckBox x:Name="IsClockwise" Content="IsClockwise" IsChecked="True"/>
+            <CheckBox x:Name="IsLargeArc" Content="IsLargeArc" IsChecked="True"/>
+            <Button Content="Syntax" Click="SyntaxButton_Click"/>
+            <Button Content="Segment" Click="SegmentButton_Click"/>
+        </StatusBar>
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="Custom_Controls_Test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Custom_Controls_Test"
+        xmlns:cc="clr-namespace:WPFCustomControls;assembly=WPFCustomControls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="NumericBox">
+            <StackPanel>
+            <cc:NumericBox x:Name="NumericBox"/>
+                <TextBlock Text="{Binding IntValue, ElementName=NumericBox, StringFormat=IntValue \= {0}}"/>
+                <TextBlock Text="{Binding DoubleValue, ElementName=NumericBox, StringFormat=DoubleValue \= {0}}"/>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="ScalableScrollViewer">
+            <cc:ScalableScrollViewer>
+                <Image Source="b.png"/>
+            </cc:ScalableScrollViewer>
+        </TabItem>
+    </TabControl>
+</Window>
