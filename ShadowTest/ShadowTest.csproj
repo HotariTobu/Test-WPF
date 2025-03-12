@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -6,6 +6,6 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <Import Project="..\..\SharedWPF\SharedWPF\SharedWPF.projitems" Label="Shared" />
+  <Import Project="..\..\SharedWPF\src\SharedWPF.projitems" Label="Shared" />
 
 </Project>

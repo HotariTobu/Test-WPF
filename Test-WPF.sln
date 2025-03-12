@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF Arc Test", "WPF Arc Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Window Binding Test", "Window Binding Test\Window Binding Test.csproj", "{473D50FA-7A24-44CC-A083-F04A926A5EB2}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedWPF", "..\SharedWPF\SharedWPF\SharedWPF.shproj", "{AE6E9D7E-4F8F-43C0-A1EB-9BCF75EF9FCB}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedWPF", "..\SharedWPF\src\SharedWPF.shproj", "{AE6E9D7E-4F8F-43C0-A1EB-9BCF75EF9FCB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loaded Test", "Loaded Test\Loaded Test.csproj", "{48706536-40C0-4978-A174-C624D8C11102}"
 EndProject
@@ -53,14 +53,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indexed1 Bitmap Test", "Ind
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\SharedWPF\SharedWPF\SharedWPF.projitems*{18064b32-f2c5-4093-8684-8be74b3ca6aa}*SharedItemsImports = 5
-		..\SharedWPF\SharedWPF\SharedWPF.projitems*{473d50fa-7a24-44cc-a083-f04a926a5eb2}*SharedItemsImports = 5
-		..\SharedWPF\SharedWPF\SharedWPF.projitems*{50b69912-d474-4cbd-859d-8a72424abd37}*SharedItemsImports = 5
-		..\SharedWPF\SharedWPF\SharedWPF.projitems*{536d582c-c633-4ff6-8d89-75a12c7e0084}*SharedItemsImports = 5
-		..\SharedWPF\SharedWPF\SharedWPF.projitems*{acbb2fb6-db4d-4ed8-bad9-b051d247f887}*SharedItemsImports = 5
-		..\SharedWPF\SharedWPF\SharedWPF.projitems*{ae6e9d7e-4f8f-43c0-a1eb-9bcf75ef9fcb}*SharedItemsImports = 13
-		..\SharedWPF\SharedWPF\SharedWPF.projitems*{e4dd3f2c-52af-42a0-888a-8196d0d7cd1d}*SharedItemsImports = 5
-		..\SharedWPF\SharedWPF\SharedWPF.projitems*{ef3f3a18-2d53-4edd-9b72-6ea21d5ccacc}*SharedItemsImports = 5
+		..\SharedWPF\src\SharedWPF.projitems*{18064b32-f2c5-4093-8684-8be74b3ca6aa}*SharedItemsImports = 5
+		..\SharedWPF\src\SharedWPF.projitems*{473d50fa-7a24-44cc-a083-f04a926a5eb2}*SharedItemsImports = 5
+		..\SharedWPF\src\SharedWPF.projitems*{50b69912-d474-4cbd-859d-8a72424abd37}*SharedItemsImports = 5
+		..\SharedWPF\src\SharedWPF.projitems*{536d582c-c633-4ff6-8d89-75a12c7e0084}*SharedItemsImports = 5
+		..\SharedWPF\src\SharedWPF.projitems*{acbb2fb6-db4d-4ed8-bad9-b051d247f887}*SharedItemsImports = 5
+		..\SharedWPF\src\SharedWPF.projitems*{ae6e9d7e-4f8f-43c0-a1eb-9bcf75ef9fcb}*SharedItemsImports = 13
+		..\SharedWPF\src\SharedWPF.projitems*{e4dd3f2c-52af-42a0-888a-8196d0d7cd1d}*SharedItemsImports = 5
+		..\SharedWPF\src\SharedWPF.projitems*{ef3f3a18-2d53-4edd-9b72-6ea21d5ccacc}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

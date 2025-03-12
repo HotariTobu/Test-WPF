@@ -11,6 +11,6 @@
     <ProjectReference Include="..\..\WPFCustomControls\WPFCustomControls\WPFCustomControls.csproj" />
   </ItemGroup>
 
-  <Import Project="..\..\SharedWPF\SharedWPF\SharedWPF.projitems" Label="Shared" />
+  <Import Project="..\..\SharedWPF\src\SharedWPF.projitems" Label="Shared" />
 
 </Project>
