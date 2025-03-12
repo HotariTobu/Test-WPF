@@ -5,24 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Test"
         mc:Ignorable="d"
-        Title="WPF Test" Height="1073" Width="1863">
-    <Grid>
-        <TabControl>
-            <TabItem Header="Styl1">
-                <Frame Source="/Styl1.xaml"/>
-            </TabItem>
-            <TabItem Header="Cont1">
-                <Frame Source="/Cont1.xaml"/>
-            </TabItem>
-            <TabItem Header="Anime1">
-                <Frame Source="/Anime1.xaml"/>
-            </TabItem>
-            <TabItem Header="Cont2">
-                <Frame Source="/Cont2.xaml"/>
-            </TabItem>
-            <TabItem Header="Cont3">
-                <Frame Source="/Cont3.xaml"/>
-            </TabItem>
-        </TabControl>
-    </Grid>
+        Title="WPF Test"
+        Height="800"
+        Width="1000">
+    <TabControl>
+        <TabItem Header="Cont1">
+            <Frame Source="/Cont1.xaml"/>
+        </TabItem>
+        <TabItem Header="Cont2">
+            <Frame Source="/Cont2.xaml"/>
+        </TabItem>
+        <TabItem Header="Cont3">
+            <Frame Source="/Cont3.xaml"/>
+        </TabItem>
+        <TabItem Header="Anime1">
+            <Frame Source="/Anime1.xaml"/>
+        </TabItem>
+        <TabItem Header="Styl1">
+            <Frame Source="/Styl1.xaml"/>
+        </TabItem>
+        <TabItem Header="Thre1">
+            <Frame Source="/Thre1.xaml"/>
+        </TabItem>
+    </TabControl>
 </Window>
