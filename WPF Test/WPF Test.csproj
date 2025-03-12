@@ -17,4 +17,8 @@
     <ProjectReference Include="..\..\WPFHotariStyles\WPFHotariStyles\WPFHotariStyles.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Resource Include="img.png" />
+  </ItemGroup>
+
 </Project>
