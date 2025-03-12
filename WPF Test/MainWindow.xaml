@@ -8,11 +8,21 @@
         Title="WPF Test" Height="1073" Width="1863">
     <Grid>
         <TabControl>
-            <Frame Source="/Styl1.xaml"/>
-            <Frame Source="/Cont1.xaml"/>
-            <Frame Source="/Anime1.xaml"/>
-            <Frame Source="/Cont2.xaml"/>
-            <Frame Source="/Cont3.xaml"/>
+            <TabItem Header="Styl1">
+                <Frame Source="/Styl1.xaml"/>
+            </TabItem>
+            <TabItem Header="Cont1">
+                <Frame Source="/Cont1.xaml"/>
+            </TabItem>
+            <TabItem Header="Anime1">
+                <Frame Source="/Anime1.xaml"/>
+            </TabItem>
+            <TabItem Header="Cont2">
+                <Frame Source="/Cont2.xaml"/>
+            </TabItem>
+            <TabItem Header="Cont3">
+                <Frame Source="/Cont3.xaml"/>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
