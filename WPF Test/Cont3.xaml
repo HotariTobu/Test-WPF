@@ -5,34 +5,49 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:WPF_Test"
       mc:Ignorable="d"
-      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:sc="clr-namespace:System.Collections;assembly=mscorlib"
+      d:DesignHeight="450"
+        d:DesignWidth="800"
       Title="Cont3">
     <Page.Resources>
         <local:ProgressToAngleConverter x:Key="ProgressConverter"/>
-        <Style TargetType="{x:Type ProgressBar}" x:Key="ProgressBarStyle">
+        <Style TargetType="{x:Type ProgressBar}"
+                x:Key="ProgressBarStyle">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ProgressBar}">
                         <Grid>
-                            <Ellipse Stroke="Black" Fill="{TemplateBinding Background}"/>
-                            <Ellipse Stroke="Black" Margin="40" Fill="White"/>
-                            <local:Arc StrokeThickness="30" Stroke="{TemplateBinding BorderBrush}" Margin="5">
+                            <Ellipse Stroke="Black"
+                                    Fill="{TemplateBinding Background}"/>
+                            <Ellipse Stroke="Black"
+                                    Margin="40"
+                                    Fill="White"/>
+                            <local:Arc StrokeThickness="30"
+                                    Stroke="{TemplateBinding BorderBrush}"
+                                    Margin="5">
                                 <local:Arc.StartAngle>
                                     <MultiBinding Converter="{StaticResource ProgressConverter}">
-                                        <Binding Path="Minimum" RelativeSource="{RelativeSource TemplatedParent}"/>
-                                        <Binding Path="." RelativeSource="{RelativeSource TemplatedParent}"/>
+                                        <Binding Path="Minimum"
+                                                RelativeSource="{RelativeSource TemplatedParent}"/>
+                                        <Binding Path="."
+                                                RelativeSource="{RelativeSource TemplatedParent}"/>
                                     </MultiBinding>
                                 </local:Arc.StartAngle>
                                 <local:Arc.EndAngle>
                                     <MultiBinding Converter="{StaticResource ProgressConverter}">
-                                        <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}"/>
-                                        <Binding Path="." RelativeSource="{RelativeSource TemplatedParent}"/>
+                                        <Binding Path="Value"
+                                                RelativeSource="{RelativeSource TemplatedParent}"/>
+                                        <Binding Path="."
+                                                RelativeSource="{RelativeSource TemplatedParent}"/>
                                     </MultiBinding>
                                 </local:Arc.EndAngle>
                             </local:Arc>
                             <TextBlock Text="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, StringFormat=\{0:0\}}"
-                                       Foreground="{TemplateBinding Background}" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                       FontSize="72" FontWeight="Bold"/>
+                                       Foreground="{TemplateBinding Background}"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                       FontSize="72"
+                                    FontWeight="Bold"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -42,14 +57,20 @@
 
     <WrapPanel>
         <StackPanel>
-            <ProgressBar Style="{StaticResource ProgressBarStyle}" Width="300" Height="300"
-                        Value="{Binding ElementName=ProgressSlider, Path=Value}"/>
-            <Slider Name="ProgressSlider" Maximum="100" Value="50" />
+            <ProgressBar Style="{StaticResource ProgressBarStyle}"
+                    Width="300"
+                    Height="300"
+                         Value="{Binding ElementName=ProgressSlider, Path=Value}"/>
+            <Slider Name="ProgressSlider"
+                    Maximum="100"
+                    Value="50"/>
         </StackPanel>
 
         <StackPanel>
-            <TextBlock Text="ContentControlのサンプル" FontSize="20"/>
-            <Border Background="AliceBlue" Height="200">
+            <TextBlock Text="ContentControlのサンプル"
+                    FontSize="20"/>
+            <Border Background="AliceBlue"
+                    Height="200">
                 <Border.Resources>
                     <DataTemplate x:Key="A">
                         <TextBlock Text="あっかんべー"/>
@@ -58,8 +79,87 @@
                         <Button Content="ボタンだよ～ん"/>
                     </DataTemplate>
                 </Border.Resources>
-                <ContentControl ContentTemplate="{StaticResource A}" MouseEnter="ContentControl_MouseEnter" MouseLeave="ContentControl_MouseLeave"/>
+                <ContentControl ContentTemplate="{StaticResource A}"
+                        MouseEnter="ContentControl_MouseEnter"
+                        MouseLeave="ContentControl_MouseLeave"/>
             </Border>
         </StackPanel>
+
+        <ItemsControl Width="400" Margin="10">
+            <ItemsControl.Template>
+                <ControlTemplate TargetType="ItemsControl">
+                    <Border BorderBrush="Aqua"
+                            BorderThickness="1"
+                            CornerRadius="15">
+                        <ItemsPresenter/>
+                    </Border>
+                </ControlTemplate>
+            </ItemsControl.Template>
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize"
+                                    Value="18"/>
+                            <Setter Property="HorizontalAlignment"
+                                    Value="Center"/>
+                        </Style>
+                    </DataTemplate.Resources>
+                    <Grid>
+                        <Ellipse Fill="Silver"/>
+                        <StackPanel>
+                            <TextBlock Margin="3,3,3,0"
+                                       Text="{Binding Path=Priority}"/>
+                            <TextBlock Margin="3,0,3,7"
+                                       Text="{Binding Path=Name}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Control.Width"
+                            Value="100"/>
+                    <Setter Property="Control.Margin"
+                            Value="5"/>
+                    <Style.Triggers>
+                        <Trigger Property="Control.IsMouseOver"
+                                 Value="True">
+                            <Setter Property="Control.ToolTip"
+                                    Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=Content.Description}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+
+            <ItemsControl.ItemsSource>
+                <sc:ArrayList>
+                    <local:MyTask Priority="高"
+                                  Name="タスク1"
+                                  Description="優先度の高いタスクです。"/>
+                    <local:MyTask Priority="中"
+                                  Name="タスク2"
+                                  Description="優先度は中程度のタスクです。"/>
+                    <local:MyTask Priority="低"
+                                  Name="タスク3"
+                                  Description="優先度の低いタスクです。"/>
+                    <local:MyTask Priority="不明"
+                                  Name="タスク4"
+                                  Description="優先度がわからないタスクです。"/>
+                    <local:MyTask Priority="未定"
+                                  Name="タスク5"
+                                  Description="優先度をこれから決めるタスクです。"/>
+                </sc:ArrayList>
+            </ItemsControl.ItemsSource>
+        </ItemsControl>
     </WrapPanel>
 </Page>
