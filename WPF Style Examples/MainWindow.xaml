@@ -13,6 +13,7 @@
                     <ComboBoxItem Content="Test"/>
                     <ComboBoxItem Content="Text"/>
                 </ComboBox>
+                <ProgressBar Width="100" Height="20" Value="50"/>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

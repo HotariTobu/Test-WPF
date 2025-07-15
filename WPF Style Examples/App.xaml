@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:WPF_Style_Examples"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary Source="ComboBox.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources.xaml"/>
+                <ResourceDictionary Source="ComboBox.xaml"/>
+                <ResourceDictionary Source="ProgressBar.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
